@@ -1,0 +1,27 @@
+.navbar-container{
+    display: flex;
+    flex-direction: row;
+    background-color: #131921;
+    margin-bottom: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+   
+}
+
+.navbar-brand-name{
+    margin-left: 70px;
+}
+
+.navbar-cart{
+    margin-right: 80px;
+}
+
+.navbar-text{
+    color: #fff;
+}

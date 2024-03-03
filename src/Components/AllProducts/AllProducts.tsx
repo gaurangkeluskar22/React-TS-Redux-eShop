@@ -1,15 +1,17 @@
 import React, { useEffect } from "react"
-import NavBar from "../NavBar"
+import NavBar from "../NavBar/NavBar"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchedAllProducts } from "../../Redux/Slices/fetchProductSlice"
 import { AnyAction, PayloadAction, ThunkDispatch } from "@reduxjs/toolkit"
 import EshopStateType from "../../types/EshopStateType"
 import EshopState from "../../types/EshopState"
+import './AllProducts.css'
+import Card from "../Card/Card"
 
 
 const AllProducts : React.FC = () => {
     const dispatch : ThunkDispatch<EshopStateType,void,PayloadAction<any>> = useDispatch()
-    const allProducts = useSelector((state : EshopState)=> state?.AllProducts?.data)
+    const allProducts = useSelector((state : EshopState)=> state?.AllProducts)
    
     
     useEffect(()=>{ 
@@ -19,15 +21,20 @@ const AllProducts : React.FC = () => {
     return(
         <div>
             <NavBar/>
+            <div className="all-products__container">
             {
-                allProducts?.map((product)=>{
+                allProducts?.isLoading ?
+                <div>
+                    Loading
+                </div>
+                :
+                allProducts?.data?.map((product, index)=>{
                     return(
-                        <div>
-                            {product?.title}
-                            </div>
+                        <Card data={product} key={index}/>
                     )
                 })
             }
+            </div>
             
         </div>
     )

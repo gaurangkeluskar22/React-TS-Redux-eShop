@@ -1,0 +1,9 @@
+.cart-container{
+    width: 90vw;
+    /* align-items: center; */
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    top: 100px;
+    position: relative;
+}
