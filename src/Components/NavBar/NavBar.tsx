@@ -19,7 +19,11 @@ const NavBar  : React.FC = () => {
 
     return(
         <div className="navbar-container">
+            <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
             <h1 className="navbar-brand-name navbar-text" onClick={handleLogoClick}>Eshop</h1>
+            <input type="text" name="text" placeholder="search Product..." style={{width:'300px', height:'25px', paddingLeft:'10px'}}></input>
+            <button style={{width:'100px', height:'30px', backgroundColor:'#FFD814', marginLeft:'10px', border:'1px #FFD814', borderRadius:'1px'}}>Search</button>
+            </div>
             <h2 className="navbar-text navbar-cart" onClick={handleCartClick}>Cart : {cartDataCount}</h2>
         </div>
     )
