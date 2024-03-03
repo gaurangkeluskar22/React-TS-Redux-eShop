@@ -17,3 +17,12 @@
 p{
     margin: 0px;
 }
+
+.card-button{
+    margin: 10px;
+    background-color: #FFD814;
+    padding: 10px 25px; 
+    font-size: 15px;
+    border: 1px #FFD814;
+    border-radius: 50px;
+}
