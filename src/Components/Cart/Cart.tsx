@@ -10,7 +10,7 @@ const Cart : React.FC = () => {
 
     return(
         <>
-            <NavBar/>
+            {/* <NavBar/> */}
             <div className="cart-container">
                {
                 cartData?.length ?

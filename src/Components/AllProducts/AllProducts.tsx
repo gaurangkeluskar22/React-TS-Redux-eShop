@@ -15,12 +15,14 @@ const AllProducts : React.FC = () => {
    
     
     useEffect(()=>{ 
+        if(!allProducts?.data?.length){
         dispatch(fetchedAllProducts())
+        }
     },[])
 
     return(
         <div>
-            <NavBar/>
+            {/* <NavBar/> */}
             <div className="all-products__container">
             {
                 allProducts?.isLoading ?

@@ -34,7 +34,7 @@ const ProductDetails : React.FC = () => {
 
     return(
         <div>
-            <NavBar/>
+            {/* <NavBar/> */}
             <div className="product-details-container">
                 <div className="product-details__images">
                     {
