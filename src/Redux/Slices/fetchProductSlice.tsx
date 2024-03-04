@@ -10,7 +10,6 @@ export const fetchedAllProducts = createAsyncThunk("fetchedAllProducts", async (
 
 export const searchProduct = createAsyncThunk("searchProduct", async (searchText : string) => {
     const response = await axios.get(`${apiURL}/search?q=${searchText}`)
-    console.log("res:",response)
     return response.data
 })
 
