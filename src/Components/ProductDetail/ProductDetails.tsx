@@ -5,14 +5,17 @@ import { useState } from "react"
 import { useLocation } from "react-router-dom"
 import './ProductDetails.css'
 import { generateRating } from "../../utils/utils"
-import { useDispatch } from "react-redux"
-import { addToCart } from "../../Redux/Slices/cartSlice"
+import { useDispatch, useSelector } from "react-redux"
+import { addToCart, generateCartItemId } from "../../Redux/Slices/cartSlice"
+import EshopState from "../../types/EshopState"
 
 const ProductDetails : React.FC = () => {
     const dispatch = useDispatch()
     const location = useLocation()
     const [productData, setProductData] = useState<Product>()
     const [displayImg, setDisplayImg] = useState<string>('')
+    const cartDataItemId = useSelector((state : EshopState)=> state?.Cart?.cartItemId)
+    console.log("here:",cartDataItemId)
     
     useEffect(()=>{
         if(location?.state?.data){
@@ -28,6 +31,7 @@ const ProductDetails : React.FC = () => {
 
     const handleAddToCart = () => {
         if(productData){
+            dispatch(generateCartItemId())
             dispatch(addToCart(productData))
         }
     }

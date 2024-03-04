@@ -10,6 +10,7 @@ interface Product {
     category: string,
     thumbnail: string,
     images: string[],
+    cartItemId?: number,
 }
 
 export default Product

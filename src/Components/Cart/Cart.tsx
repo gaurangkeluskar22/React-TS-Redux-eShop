@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar";
 import './Cart.css'
 import { useSelector } from "react-redux";
 import EshopState from "../../types/EshopState";

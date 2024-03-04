@@ -8,6 +8,7 @@ interface FetchProductSlice {
 interface CartSlice {
     data : Product[],
     count : number,
+    cartItemId : number,
 }
 
 interface EshopState {

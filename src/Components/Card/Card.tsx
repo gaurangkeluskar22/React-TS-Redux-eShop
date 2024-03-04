@@ -28,7 +28,9 @@ const Card : React.FC<DataProp>  = ({data, isMyCart}) => {
     }
 
     const handleRemoveFromCart = () => {
-        dispatch(removeFromCart(data?.id))
+        if(data?.cartItemId){
+            dispatch(removeFromCart(data?.cartItemId))
+        }
     }
 
     return(

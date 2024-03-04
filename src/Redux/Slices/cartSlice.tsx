@@ -4,6 +4,7 @@ import Product from "../../types/Product";
 interface cartState{
     data: Product[],
     count: number,
+    cartItemId: number,
 }
 
 const cartSlice = createSlice({
@@ -11,20 +12,26 @@ const cartSlice = createSlice({
     initialState:{
         data: [],
         count: 0,
+        cartItemId: 0,
     } as cartState,
+    
     reducers:{
+        generateCartItemId : (state) => {
+            state.cartItemId = state.cartItemId + 1
+        },
+
         addToCart : (state, action : PayloadAction<Product>) => {
-             state.data.push(action.payload)
-             state.count = state.data.length
+                state.data.push({...action.payload, cartItemId : state.cartItemId}) 
+                state.count = state.data.length
         },
 
         removeFromCart : (state, action : PayloadAction<number>) => {
-            const newData = state.data.filter((item)=> item.id !== action.payload)
+            const newData = state.data.filter((item)=> item.cartItemId !== action.payload)
             state.data = newData
             state.count = state.data.length
         }
     }
 })
 
-export const {addToCart, removeFromCart} = cartSlice.actions
+export const {generateCartItemId, addToCart, removeFromCart} = cartSlice.actions
 export default cartSlice.reducer
